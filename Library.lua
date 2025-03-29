@@ -32,7 +32,7 @@ local Library = {
 	FontColor = Color3.fromRGB(255, 255, 255);
 	MainColor = Color3.fromRGB(28, 28, 28);
 	BackgroundColor = Color3.fromRGB(20, 20, 20);
-	AccentColor = Color3.fromRGB(255, 0, 0);
+	AccentColor = Color3.fromRGB(207, 159, 255);
 	OutlineColor = Color3.fromRGB(50, 50, 50);
 	RiskColor = Color3.fromRGB(255, 50, 50),
 
@@ -2354,7 +2354,7 @@ do
 					table.insert(T, Value);
 				end;
 
-				Dropdown.Value = T
+				return T;
 			else
 				return Dropdown.Value and 1 or 0;
 			end;
@@ -2509,6 +2509,7 @@ do
 
 				for Value, Bool in next, Val do
 					if table.find(Dropdown.Values, Value) then
+						table.insert(nTable, Value)
 						nTable[Value] = true
 					end;
 				end;

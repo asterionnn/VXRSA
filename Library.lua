@@ -32,7 +32,7 @@ local Library = {
 	FontColor = Color3.fromRGB(255, 255, 255);
 	MainColor = Color3.fromRGB(28, 28, 28);
 	BackgroundColor = Color3.fromRGB(20, 20, 20);
-	AccentColor = Color3.fromRGB(255, 255, 255);
+	AccentColor = Color3.fromRGB(207, 159, 255);
 	OutlineColor = Color3.fromRGB(50, 50, 50);
 	RiskColor = Color3.fromRGB(255, 50, 50),
 
@@ -2347,14 +2347,13 @@ do
 		end;
 
 		function Dropdown:GetActiveValues()
-			local Values = Dropdown.Values;
 			if Info.Multi then
 				local T = {};
 
-				for Idx, Value in next, Values do
-					if Dropdown.Value[Value] then
-						table.insert(T, Value)
-					end;
+				for Value, Bool in next, Dropdown.Value do
+					if Bool then
+					table.insert(T, Value);
+					end
 				end;
 
 				return T;

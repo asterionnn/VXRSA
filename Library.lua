@@ -2166,7 +2166,7 @@ do
 
 		local Dropdown = {
 			Values = Info.Values;
-			Value = {};
+			Value = Info.Multi and {};
 			Multi = Info.Multi;
 			Type = 'Dropdown';
 			SpecialType = Info.SpecialType; -- can be either 'Player' or 'Team'
@@ -2348,13 +2348,13 @@ do
 
 		function Dropdown:GetActiveValues()
 			if Info.Multi then
-				local T = {}
-				
+				local T = {};
+
 				for Value, Bool in next, Dropdown.Value do
-					table.insert(T, Value)
-				end
-				
-				return T
+					table.insert(T, Value);
+				end;
+
+				return T;
 			else
 				return Dropdown.Value and 1 or 0;
 			end;

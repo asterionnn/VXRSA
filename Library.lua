@@ -2347,15 +2347,12 @@ do
 		end;
 
 		function Dropdown:GetActiveValues()
-			local Values = Dropdown.Values;
 			if Info.Multi then
 				local T = {}
 				
-				for Idx, Value in next, Values do
-					if Dropdown.Value[Value] then
-						table.insert(T, Value)
-					end;
-				end;
+				for Value, Bool in next, Dropdown.Value do
+					table.insert(T, Value)
+				end
 				
 				return T
 			else

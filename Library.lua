@@ -32,7 +32,7 @@ local Library = {
 	FontColor = Color3.fromRGB(255, 255, 255);
 	MainColor = Color3.fromRGB(28, 28, 28);
 	BackgroundColor = Color3.fromRGB(20, 20, 20);
-	AccentColor = Color3.fromRGB(255, 255, 255);
+	AccentColor = Color3.fromRGB(207, 159, 255);
 	OutlineColor = Color3.fromRGB(50, 50, 50);
 	RiskColor = Color3.fromRGB(255, 50, 50),
 
@@ -2350,8 +2350,8 @@ do
 			if Info.Multi then
 				local T = {};
 
-				for Value, Bool in next, Dropdown.Value[Value] do
-					table.insert(T, Value);
+				for Value, Bool in next, Dropdown.Value do
+					table.insert(T, Value[Value]);
 				end;
 
 				return T;

@@ -2348,7 +2348,13 @@ do
 
 		function Dropdown:GetActiveValues()
 			if Info.Multi then
-				return Dropdown.Value and 1 or 0;
+				local T = {};
+
+				for Value, Bool in pairs(Dropdown.Value) do
+					table.insert(T, Value);
+				end;
+
+				return T;
 			else
 				return Dropdown.Value and 1 or 0;
 			end;

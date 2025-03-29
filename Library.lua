@@ -2347,6 +2347,7 @@ do
 		end;
 
 		function Dropdown:GetActiveValues()
+			local Values = Dropdown.Values;
 			if Info.Multi then
 				local T = {}
 				

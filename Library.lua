@@ -1281,7 +1281,8 @@ do
 			end;
 		end);
 
-		Library:GiveSignal(InputService.InputBegan:Connect(function(Input)
+		Library:GiveSignal(InputService.InputBegan:Connect(function(Input, IsTyping)
+			if IsTyping then return end
 			if (not Picking) then
 				if KeyPicker.Mode == 'Toggle' then
 					local Key = KeyPicker.Value;
@@ -3515,13 +3516,10 @@ function Library:CreateWindow(...)
 		local FadeTime = Config.MenuFadeTime;
 		Fading = true;
 		Toggled = (not Toggled);
-		ModalElement.Modal = Toggled;
 
 		if Toggled then
 			-- A bit scuffed, but if we're going from not toggled -> toggled we want to show the frame immediately so that the fade is visible.
 			Outer.Visible = true;
-
-			
 		end;
 
 		for _, Desc in next, Outer:GetDescendants() do

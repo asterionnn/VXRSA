@@ -32,7 +32,7 @@ local Library = {
 	FontColor = Color3.fromRGB(255, 255, 255);
 	MainColor = Color3.fromRGB(28, 28, 28);
 	BackgroundColor = Color3.fromRGB(20, 20, 20);
-	AccentColor = Color3.fromRGB(207, 159, 255);
+	AccentColor = Color3.fromRGB(255, 0, 0);
 	OutlineColor = Color3.fromRGB(50, 50, 50);
 	RiskColor = Color3.fromRGB(255, 50, 50),
 
@@ -2347,19 +2347,16 @@ do
 		end;
 
 		function Dropdown:GetActiveValues()
-			if self.Multi then
-				local selected = {}
-				-- Check if self.Value exists and is a table
-				if type(self.Value) == 'table' then
-					for _, value in ipairs(self.Values) do
-						if self.Value[value] then -- Check if this value is selected
-							table.insert(selected, value)
-						end
-					end
-				end
-				return selected
+			if Info.Multi then
+				local T = {};
+
+				for Value, Bool in next, Dropdown.Value do
+					table.insert(T, Value);
+				end;
+
+				Dropdown.Value = T
 			else
-				return self.Value and 1 or 0;
+				return Dropdown.Value and 1 or 0;
 			end;
 		end;
 

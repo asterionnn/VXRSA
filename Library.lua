@@ -2353,7 +2353,7 @@ do
 
 				for Idx, Value in next, Values do
 					if Dropdown.Value[Value] then
-						table.insert(Table, Value)
+						table.insert(T, Value)
 					end;
 				end;
 

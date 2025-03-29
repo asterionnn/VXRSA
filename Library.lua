@@ -2347,16 +2347,19 @@ do
 		end;
 
 		function Dropdown:GetActiveValues()
-			if Info.Multi then
-				local T = {};
-
-				for Value, Bool in next, Dropdown.Value do
-					table.insert(T, Value);
-				end;
-
-				return T;
+			if self.Multi then
+				local selected = {}
+				-- Check if self.Value exists and is a table
+				if type(self.Value) == 'table' then
+					for _, value in ipairs(self.Values) do
+						if self.Value[value] then -- Check if this value is selected
+							table.insert(selected, value)
+						end
+					end
+				end
+				return selected
 			else
-				return Dropdown.Value and 1 or 0;
+				return self.Value and 1 or 0;
 			end;
 		end;
 
